@@ -9,7 +9,7 @@ pipeline {
                  }   
                  stage('build') {
                       steps {
-                        echo 'bundle install'
+                        
                         ruby(readFileFromWorkspace('convert.rb'))
                              }
                  }
