@@ -9,7 +9,7 @@ pipeline {
                  }   
                  stage('build') {
                       steps {
-                        echo 'Ruby api.rb'
+                        gem install bundler
                       }
                   }  
                      
