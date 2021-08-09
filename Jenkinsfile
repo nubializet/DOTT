@@ -6,12 +6,12 @@ pipeline {
                       steps {
                        git poll: true, url: 'https://github.com/nubializet/DOTT'    
                       }
+                 }   
                  stage('build') {
                       steps {
                         sh 'bundle install'
                       }
-                    }  
-
-        } 
+                  }  
+                     
     }
 }
