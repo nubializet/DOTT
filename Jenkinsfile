@@ -9,9 +9,9 @@ pipeline {
                  }   
                  stage('build') {
                       steps {
-                        gem install bundler
-                      }
-                  }  
+                        sh 'bundle install'
+                             }
+                 }
                      
     }
 }
