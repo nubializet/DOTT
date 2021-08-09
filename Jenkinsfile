@@ -9,9 +9,9 @@ pipeline {
                  }   
                  stage('build') {
                       steps {
-                        
-                        ruby(readFileFromWorkspace('convert.rb'))
-                             }
+                        echo 'gem install bundler'
+                        echo 'bundle install'
+                           }
                  }
                      
     }
