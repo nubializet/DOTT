@@ -9,7 +9,7 @@ pipeline {
                  }   
                  stage('build') {
                       steps {
-                        Ruby api.rb
+                        echo 'Ruby api.rb'
                       }
                   }  
                      
