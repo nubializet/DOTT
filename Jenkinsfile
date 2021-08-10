@@ -20,7 +20,6 @@ pipeline {
                         dir("cidr_convert_api/ruby/convert.rb"){
                         echo 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'}
                     }   
-         }
-                     
+         }             
     }
 }
