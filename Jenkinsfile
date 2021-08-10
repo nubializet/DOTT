@@ -13,13 +13,21 @@ pipeline {
                         echo 'bundle install'
                            }
                  }
-                     
-                stage('Sonarqube - sonarcloud'){
-                    steps{
-                        script { env.SONAR_TOKEN="7db027d86418fb4e6cec9e9fa98e4c98423557ce" }
-                        dir("cidr_convert_api/ruby/convert.rb"){
-                            echo 'result'}
-                    }   
-         }             
+                
+                stage('SonarCloud') {
+  environment {
+    SCANNER_HOME = tool 'SonarQubeScanner'
+    ORGANIZATION = "nubializet-github"
+    PROJECT_NAME = "nubializet-DOTT"
+  }
+  steps {
+    withSonarQubeEnv('SonarCloud') {
+        sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \	
+        -Dsonar.projectKey=$PROJECT_NAME \
+        -Dsonar.sources=./cidr_convert_api \
+    }
+  }
+}     
+            
     }
 }
