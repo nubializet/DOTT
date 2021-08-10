@@ -1,7 +1,6 @@
 pipeline {
         agent any
              stages {
-                   
                  stage('Checkout-git'){
                       steps {
                        git poll: true, url: 'https://github.com/nubializet/DOTT'    
@@ -13,7 +12,6 @@ pipeline {
                         echo 'bundle install'
                            }
                  }
-     
                 stage('SonarCloud') {
                   environment {
                     SCANNER_HOME = tool 'SonarQubeScanner'
@@ -24,7 +22,7 @@ pipeline {
                     withSonarQubeEnv('SonarCloud') {
                         sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
                         -Dsonar.projectKey=$PROJECT_NAME \
-                        -Dsonar.sources=./cidr_convert_api \ '''
+                        -Dsonar.sources=./cidr_convert_api \'''
                     }
                   }
                 }
