@@ -20,12 +20,11 @@ pipeline {
                   }
                   steps {
                     withSonarQubeEnv('SonarCloud') {
-                        sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
+                        sh """$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
                         -Dsonar.projectKey=$PROJECT_NAME \
-                        -Dsonar.sources=./cidr_convert_api \'''
+                        -Dsonar.sources=./cidr_convert_api \"""
                     }
                   }
                 }
-            
     }
 }
