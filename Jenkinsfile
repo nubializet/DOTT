@@ -8,7 +8,7 @@ pipeline {
                  }   
                  stage('Build') {
                       steps {
-                        echo 'bundle install'
+                        echo 'ruby --version'
                        }
                  }
                 stage('Sonarqube') {
