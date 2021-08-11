@@ -8,7 +8,7 @@ pipeline {
                  }   
                  stage('Build') {
                       steps {
-                        sh "docker image build . -f /DOTT/cidr_convert_api/ruby"
+                        sh "docker image build . -f DOTT/cidr_convert_api/ruby/Dockerfile"
                        }
                  }
                 stage('Sonarqube') {
