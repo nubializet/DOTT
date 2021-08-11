@@ -8,7 +8,7 @@ pipeline {
                  }   
                  stage('Build') {
                       steps {
-                        sh "docker build -f ./cidr_convert_api/ruby/Dockerfile ."
+                        echo 'Testing' 
                        }
                  }
                 stage('Sonarqube') {
