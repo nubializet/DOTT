@@ -24,7 +24,7 @@ pipeline {
                             sh """$SCANNER_HOME/bin/sonar-scanner --version\
                             -Dsonar.organization=$ORGANIZATION \
                             -Dsonar.projectKey=$PROJECT_NAME \
-                            -Dsonar.sources=./cidr_convert_api/ruby \ """
+                            -Dsonar.sources=./cidr_convert_api/ruby """
                         }
                       }
                     }
