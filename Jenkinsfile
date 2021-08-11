@@ -6,13 +6,12 @@ pipeline {
                        git poll: true, url: 'https://github.com/nubializet/DOTT'    
                       }
                  }   
-                 stage('build') {
+                 stage('Build') {
                       steps {
-
                         echo 'bundle install'
-                           }
+                       }
                  }
-                stage('SonarCloud') {
+                stage('Sonarqube') {
                       environment {
                         SCANNER_HOME = tool 'SonarQubeScanner'
                         SONAR_TOKEN = "7db027d86418fb4e6cec9e9fa98e4c98423557ce"
@@ -28,6 +27,17 @@ pipeline {
                         }
                       }
                     }
+                    
+                    stage('Testing') {
+                        steps {
+                               echo 'Testing' 
+                        }
+                    }
+                    stage('Deploy') {
+                        steps {
+                        echo 'Deploying'
+                               }
+                     }
                      
     }
 }
