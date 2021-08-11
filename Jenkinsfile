@@ -8,7 +8,7 @@ pipeline {
                  }   
                  stage('Build') {
                       steps {
-                        sh "docker build -f ./cidr_convert_api/ruby/Dockerfile ."
+                        //sh "docker build -f ./cidr_convert_api/ruby/Dockerfile ."
                         sh "Build"
                        }
                  }
@@ -31,12 +31,12 @@ pipeline {
                     
                     stage('Testing') {
                         steps {
-                               echo 'Testing' 
+                               sh 'Testing' 
                         }
                     }
                     stage('Deploy') {
                         steps {
-                        echo 'Deploying'
+                        sh 'Deploying'
                             }
                      }
                      
