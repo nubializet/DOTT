@@ -8,7 +8,7 @@ pipeline {
                  }   
                  stage('Build') {
                       steps {
-                        dir("cidr_convert_api/ruby/api.rb")
+                        echo 'Ruby cidr_convert_api/ruby/api.rb'
                        }
                  }
                 stage('Sonarqube') {
