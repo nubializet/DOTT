@@ -12,10 +12,21 @@ pipeline {
                         echo 'bundle install'
                            }
                  }
-                stage('testing, for sonarcloud'){
-            steps{
-                script { env.SONAR_TOKEN="823c288ab7a9a14f75cd2597c417ec3eef8602a2" }
-
+                 stage('SonarCloud') {
+                  environment {
+                    SCANNER_HOME = tool 'SonarQubeScanner'
+                    ORGANIZATION = "nubializet-github"
+                    PROJECT_NAME = "nubializet-DOTT"
+                  }
+                  steps {
+                    withSonarQubeEnv('SonarCloud') {
+                        sh '''$SCANNER_HOME/bin/sonar-scanner 
+                        -Dsonar.organization=$ORGANIZATION \
+                        -Dsonar.projectKey=$PROJECT_NAME \
+                        -Dsonar.sources=.'''
+                    }
+                  }
+                }
 
             }   
         }
