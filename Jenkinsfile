@@ -8,7 +8,7 @@ pipeline {
                  }   
                  stage('Build') {
                       steps {
-                        sh "docker image build . "
+                        sh "docker image build . -t app/ruby"
                        }
                  }
                 stage('Sonarqube') {
