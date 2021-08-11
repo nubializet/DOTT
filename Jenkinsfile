@@ -20,11 +20,10 @@ pipeline {
                         PROJECT_NAME = "nubializet-DOTT"
                       }
                       steps {
-                        withSonarQubeEnv(installationName: 'SonarCloud', credentialsId: 'SonarCloud') {
-                            echo """$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
-                            -Dsonar.java.binaries=build/classes/java/ \
+                        withSonarQubeEnv('SonarCloud')  {
+                            sh """$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
                             -Dsonar.projectKey=$PROJECT_NAME \
-                            -Dsonar.sources=./cidr_convert_api \ """
+                            -Dsonar.sources=. """
                         }
                       }
                     }
