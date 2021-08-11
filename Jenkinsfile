@@ -21,10 +21,19 @@ pipeline {
                       }
                       steps {
                         withSonarQubeEnv('SonarCloud')  {
-                            sh """$SCANNER_HOME/bin/sonar-scanner \
+                            sh """$SCANNER_HOME/bin/sonar-scanner --version\
                             -Dsonar.organization=$ORGANIZATION \
                             -Dsonar.projectKey=$PROJECT_NAME \
-                            -Dsonar.sources=. """
+                            -Dsonar.sources=./cidr_convert_api/ruby \ """
+                        }
+                      }
+                    }
+                     
+                     
+                   stage("Quality Gate") {
+                      steps {
+                        timeout(time: 1, unit: 'MINUTES') {
+                            waitForQualityGate abortPipeline: true
                         }
                       }
                     }
